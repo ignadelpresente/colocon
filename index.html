@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Colocón</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="recursos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="recursos/favicon.ico" type="image/x-icon">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+
+    <!-- ================= VIDEO BACKGROUND ================= -->
+
+    <div class="video-wrapper">
+        <video class="video-main" autoplay muted loop playsinline>
+            <source src="recursos/video.mp4" type="video/mp4">
+        </video>
+
+        <video class="video-red" autoplay muted loop playsinline>
+            <source src="recursos/video.mp4" type="video/mp4">
+        </video>
+
+        <video class="video-cyan" autoplay muted loop playsinline>
+            <source src="recursos/video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- ================= OVERLAY ================= -->
+    <div class="overlay"></div>
+
+    <!-- ================= RUIDO ================= -->
+    <canvas id="noise-canvas"></canvas>
+
+    <!-- ================= MENU SUPERIOR ================= -->
+    <!-- top-buttons moved inside .hero so on mobile it can appear under the logo -->
+
+    <!-- ================= HERO ================= -->
+
+    <!-- top-buttons (kept outside .hero to avoid nesting inside sliders) -->
+    <div class="top-buttons">
+        <button>MÚSICA</button>
+        <button>VIDEOS</button>
+        <button>MERCH</button>
+        <button>TOUR</button>
+        <button>CONTACTO</button>
+    </div>
+
+    <section class="hero">
+
+        <a href="index.html">
+            <img src="recursos/logo.png" alt="Colocón Logo" class="main-logo">
+        </a>
+
+        <div class="presave-wrapper">
+            <div class="song-title">ENAMORADOS</div>
+            <div class="single-cover-wrapper">
+                <img src="recursos/portada.jpeg" alt="Portada del single" class="single-cover">
+            </div>
+            <a href="#" class="presave-btn">PRE-SAVE</a>
+        </div>
+
+    </section>
+
+    <!-- ================= REDES ================= -->
+
+    <div class="floating-social">
+
+        <a href="https://open.spotify.com/intl-es/artist/0Fg7GbmpoUaBjA57dnW9jG?si=-sizL3gJQuCWVagxdvQCOg" class="social-link spotify">
+            <svg viewBox="0 0 168 168" class="social-svg">
+                <path d="M84 0a84 84 0 1 0 0 168 84 84 0 0 0 0-168zm38.5 121.5a5.2 5.2 0 0 1-7.2 1.7c-19.8-12.1-44.8-14.8-74.4-8a5.2 5.2 0 1 1-2.3-10.2c32.4-7.3 60.5-4.2 82.2 9.2a5.2 5.2 0 0 1 1.7 7.3zm10.3-20.9a6.5 6.5 0 0 1-9 2.1c-22.6-13.9-57.2-17.9-83.9-9.8a6.5 6.5 0 0 1-3.8-12.4c30.6-9.3 69-4.8 94.6 11.1a6.5 6.5 0 0 1 2.1 9zm.9-22.2C108.2 63.2 63.6 60 37 68.5a7.8 7.8 0 1 1-4.8-14.8c31-10 81.8-6.4 111.3 12a7.8 7.8 0 1 1-8 13.7z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.tiktok.com/@colocon.musica" class="social-link tiktok">
+            <svg viewBox="0 0 24 24" class="social-svg">
+                <path d="M16 1c.3 2.2 1.8 4.1 4 4.6v3.2c-1.8 0-3.5-.6-4.9-1.6v6.6a6.7 6.7 0 1 1-6.7-6.7c.4 0 .7 0 1 .1v3.4a3.3 3.3 0 1 0 2.3 3.1V1h4.3z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/colocon.musica/" class="social-link instagram">
+            <svg viewBox="0 0 24 24" class="social-svg">
+                <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3zm6-1.3a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 18 6z"/>
+            </svg>
+        </a>
+
+    </div>
+
+    <!-- ================= MODAL SECCIONES ================= -->
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">✕</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+<!-- BOTÓN DE COOKIES -->
+<button id="cookie-btn" class="cookie-toggle">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="white" d="M12 2A10 10 0 1 0 22 12 10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/>
+    </svg>
+</button>
+
+<!-- MODAL DE COOKIES -->
+<div id="cookie-modal" class="cookie-modal">
+  <div class="cookie-box">
+    <h2 class="cookie-title glitch-text">COOKIES</h2>
+    <p class="cookie-text">
+      Usamos cookies para mejorar tu experiencia y analizar tráfico.
+      Puedes aceptar todas o configurar tus preferencias.
+    </p>
+
+        <hr class="cookie-separator">
+
+        <div class="cookie-options">
+            <label class="cookie-option" for="cookies-necessary">
+                <input type="checkbox" id="cookies-necessary" name="cookies-necessary" checked disabled>
+                <span>Necesarias (siempre activas)</span>
+            </label>
+
+            <label class="cookie-option" for="analytics-cookies">
+                <input type="checkbox" id="analytics-cookies" name="analytics-cookies">
+                <span>Analíticas</span>
+            </label>
+
+            <label class="cookie-option" for="marketing-cookies">
+                <input type="checkbox" id="marketing-cookies" name="marketing-cookies">
+                <span>Marketing</span>
+            </label>
+    </div>
+
+    <div class="cookie-actions">
+      <button id="save-cookies" class="cookie-btn ghost">Guardar preferencias</button>
+      <button id="accept-all" class="cookie-btn primary">Aceptar todas</button>
+    </div>
+
+    <span class="close-cookie">✕</span>
+  </div>
+</div>
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="JS/noise.js"></script>
+    <script src="JS/modal.js"></script>
+    <script src="JS/cookies.js"></script>
+
+</body>
+</html>
