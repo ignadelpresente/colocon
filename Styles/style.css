@@ -217,7 +217,7 @@ body.modal-open{
     }
 
     .main-logo{
-        width:220px;
+        width:180px;
         margin-top:0px;
         margin-bottom:2px;
         display:block !important;
@@ -227,8 +227,8 @@ body.modal-open{
     }
 
     .presave-wrapper{
-        padding-top:8vh; /* empujar ligeramente para acercar al floating-social */
-        gap:5px; /* elementos internos más pegados en móvil */
+        padding-top:0.005vh; /* empujar ligeramente para acercar al floating-social */
+        gap:1px; /* elementos internos más pegados en móvil */
     }
 
     .floating-social{
